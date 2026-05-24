@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+@theme {
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  
+  --color-primary: #1A1B1E;
+  --color-secondary: #4C6EF5;
+  --color-surface: #F8F9FA;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-primary font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+}
+
+.section-padding {
+  @apply py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-8 py-4 rounded-full font-semibold transition-all hover:bg-secondary hover:scale-105 active:scale-95;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold transition-all hover:bg-primary hover:text-white active:scale-95;
+}
