@@ -3,6 +3,19 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Filter, X, Maximize2 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
+// Static assets imports
+import amliStore from '../assets/images/에이밀리_스토어_목업.jpg';
+import shopee1 from '../assets/images/쇼피_목업.png';
+import shopee2 from '../assets/images/쇼피_목업2.png';
+import mask from '../assets/images/마스크_목업.png';
+import coupon2 from '../assets/images/금액권3종_목업_2.png';
+import coupon1 from '../assets/images/금액권3종_목업.png';
+import menu from '../assets/images/manu.png';
+import billboard from '../assets/images/텍캠_전광판_목업.png';
+import banner from '../assets/images/텍캠_배너_목업.png';
+import amliDetail from '../assets/images/에이밀리_상세_목업.png';
+import storeWeb from '../assets/images/텍캠_스토어_목업.jpg';
+
 const categories = ['All', 'UI/UX', 'Branding', 'Print', 'Web'];
 
 interface Project {
@@ -19,65 +32,65 @@ const projects: Project[] = [
     id: 1,
     title: '에이밀리 스토어 UI 디자인',
     category: 'UI/UX',
-    img: '/src/assets/images/에이밀리_스토어_목업.jpg',
+    img: amliStore,
     description: '이커머스 플랫폼의 메인 인터페이스 및 사용자 경험(UX) 최적화 설계입니다.',
-    detailedImages: ['/src/assets/images/에이밀리_스토어_목업.jpg']
+    detailedImages: [amliStore]
   },
   {
     id: 2,
     title: '쇼피 모바일 웹 UI',
     category: 'UI/UX',
-    img: '/src/assets/images/쇼피_목업.png',
+    img: shopee1,
     description: '모바일 환경에 최적화된 반응형 쇼핑몰 세로형 UI 레이아웃 디자인입니다.',
-    detailedImages: ['/src/assets/images/쇼피_목업.png', '/src/assets/images/쇼피_목업2.png']
+    detailedImages: [shopee1, shopee2]
   },
   {
     id: 3,
     title: '데이바이데이 마스크 패키지 브랜딩',
     category: 'Branding',
-    img: '/src/assets/images/마스크_목업.png',
+    img: mask,
     description: '브랜드 로고 아이덴티티를 일관성 있게 적용한 패키지 및 제품 디자인입니다.',
-    detailedImages: ['/src/assets/images/마스크_목업.png']
+    detailedImages: [mask]
   },
   {
     id: 4,
     title: '텍캠 금액권 3종 디자인',
     category: 'Branding',
-    img: '/src/assets/images/금액권3종_목업_2.png',
+    img: coupon2,
     description: '고급스러운 톤앤매너로 제작된 오프라인 브랜드 아이덴티티 에셋 디자인입니다.',
-    detailedImages: ['/src/assets/images/금액권3종_목업_2.png', '/src/assets/images/금액권3종_목업.png']
+    detailedImages: [coupon2, coupon1]
   },
   {
     id: 5,
     title: '텍캠 메뉴판 브로슈어',
     category: 'Print',
-    img: '/src/assets/images/텍캠_메뉴_목업.png',
+    img: menu,
     description: '시각적 몰입감을 높인 가독성 중심의 지면 리플렛 및 메뉴판 레이아웃입니다.',
-    detailedImages: ['/src/assets/images/텍캠_메뉴_목업.png']
+    detailedImages: [menu]
   },
   {
     id: 6,
     title: '텍캠 와이드 옥외 광고 및 배너',
     category: 'Print',
-    img: '/src/assets/images/텍캠_전광판_목업.png',
+    img: billboard,
     description: '대형 실사 출력물 환경을 고려한 옥외 전광판 및 X배너 그래픽 디자인입니다.',
-    detailedImages: ['/src/assets/images/텍캠_전광판_목업.png', '/src/assets/images/텍캠_배너_목업.png']
+    detailedImages: [billboard, banner]
   },
   {
     id: 7,
     title: '에이밀리 상세페이지 기획 디자인',
     category: 'Web',
-    img: '/src/assets/images/에이밀리_상세_목업.png',
+    img: amliDetail,
     description: '소비자의 구매 전환을 유도하는 이커머스 웹 상세페이지 콘텐츠 기획 및 디자인입니다.',
-    detailedImages: ['/src/assets/images/에이밀리_상세_목업.png']
+    detailedImages: [amliDetail]
   },
   {
     id: 8,
     title: '텍캠 이커머스 반응형 웹',
     category: 'Web',
-    img: '/src/assets/images/텍캠_스토어_목업.jpg',
+    img: storeWeb,
     description: 'PC 및 태블릿 환경을 고려한 브랜드 온라인 스토어 반응형 웹 디자인입니다.',
-    detailedImages: ['/src/assets/images/텍캠_스토어_목업.jpg']
+    detailedImages: [storeWeb]
   }
 ];
 
