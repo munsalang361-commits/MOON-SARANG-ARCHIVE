@@ -12,7 +12,7 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-[40px] overflow-hidden relative">
               <img 
-                src='/src/assets/images/KakaoTalk_20260328_000812141.png'
+                src='https://i.ifh.cc/bQoP81.jpg'
                 alt="Moon Sarang" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
