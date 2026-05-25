@@ -2,97 +2,9 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Filter, X, Maximize2 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
-
-// Static assets imports
-import amliStore from '../assets/images/에이밀리_스토어_목업.jpg';
-import shopee1 from '../assets/images/쇼피_목업.png';
-import shopee2 from '../assets/images/쇼피_목업2.png';
-import mask from '../assets/images/마스크_목업.png';
-import coupon2 from '../assets/images/금액권3종_목업_2.png';
-import coupon1 from '../assets/images/금액권3종_목업.png';
-import menu from '../assets/images/manu.png';
-import billboard from '../assets/images/텍캠_전광판_목업.png';
-import banner from '../assets/images/텍캠_배너_목업.png';
-import amliDetail from '../assets/images/에이밀리_상세_목업.png';
-import storeWeb from '../assets/images/텍캠_스토어_목업.jpg';
+import { projects, Project } from '@/src/data/projects';
 
 const categories = ['All', 'UI/UX', 'Branding', 'Print', 'Web'];
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  img: string;
-  description: string;
-  detailedImages: string[];
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: '에이밀리 스토어 UI 디자인',
-    category: 'UI/UX',
-    img: amliStore,
-    description: '이커머스 플랫폼의 메인 인터페이스 및 사용자 경험(UX) 최적화 설계입니다.',
-    detailedImages: [amliStore]
-  },
-  {
-    id: 2,
-    title: '쇼피 모바일 웹 UI',
-    category: 'UI/UX',
-    img: shopee1,
-    description: '모바일 환경에 최적화된 반응형 쇼핑몰 세로형 UI 레이아웃 디자인입니다.',
-    detailedImages: [shopee1, shopee2]
-  },
-  {
-    id: 3,
-    title: '데이바이데이 마스크 패키지 브랜딩',
-    category: 'Branding',
-    img: mask,
-    description: '브랜드 로고 아이덴티티를 일관성 있게 적용한 패키지 및 제품 디자인입니다.',
-    detailedImages: [mask]
-  },
-  {
-    id: 4,
-    title: '텍캠 금액권 3종 디자인',
-    category: 'Branding',
-    img: coupon2,
-    description: '고급스러운 톤앤매너로 제작된 오프라인 브랜드 아이덴티티 에셋 디자인입니다.',
-    detailedImages: [coupon2, coupon1]
-  },
-  {
-    id: 5,
-    title: '텍캠 메뉴판 브로슈어',
-    category: 'Print',
-    img: menu,
-    description: '시각적 몰입감을 높인 가독성 중심의 지면 리플렛 및 메뉴판 레이아웃입니다.',
-    detailedImages: [menu]
-  },
-  {
-    id: 6,
-    title: '텍캠 와이드 옥외 광고 및 배너',
-    category: 'Print',
-    img: billboard,
-    description: '대형 실사 출력물 환경을 고려한 옥외 전광판 및 X배너 그래픽 디자인입니다.',
-    detailedImages: [billboard, banner]
-  },
-  {
-    id: 7,
-    title: '에이밀리 상세페이지 기획 디자인',
-    category: 'Web',
-    img: amliDetail,
-    description: '소비자의 구매 전환을 유도하는 이커머스 웹 상세페이지 콘텐츠 기획 및 디자인입니다.',
-    detailedImages: [amliDetail]
-  },
-  {
-    id: 8,
-    title: '텍캠 이커머스 반응형 웹',
-    category: 'Web',
-    img: storeWeb,
-    description: 'PC 및 태블릿 환경을 고려한 브랜드 온라인 스토어 반응형 웹 디자인입니다.',
-    detailedImages: [storeWeb]
-  }
-];
 
 export default function Projects() {
   const [filter, setFilter] = React.useState('All');
@@ -134,14 +46,14 @@ export default function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 30 }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
                 className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
@@ -151,8 +63,17 @@ export default function Projects() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
+                {project.youtubeId && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg group-hover:scale-115 group-hover:bg-secondary/90 transition-all duration-300">
+                      <svg className="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center text-white p-8 text-center">
-                  <p className="text-secondary font-bold text-sm uppercase tracking-widest mb-2">{project.category}</p>
+                  <p className="text-secondary font-bold text-sm uppercase tracking-widest mb-2">{project.displayCategory || project.category}</p>
                   <h3 className="text-2xl font-bold mb-6">{project.title}</h3>
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
@@ -187,7 +108,7 @@ export default function Projects() {
               {/* Modal Header */}
               <div className="flex items-center justify-between p-8 border-b border-gray-100 shrink-0">
                 <div>
-                  <p className="text-secondary font-bold text-sm uppercase tracking-widest mb-1">{selectedProject.category}</p>
+                  <p className="text-secondary font-bold text-sm uppercase tracking-widest mb-1">{selectedProject.displayCategory || selectedProject.category}</p>
                   <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
                 </div>
                 <button 
@@ -201,22 +122,37 @@ export default function Projects() {
               {/* Modal Content */}
               <div className="flex-grow overflow-y-auto p-8 md:p-12">
                 <div className="max-w-3xl mx-auto">
-                  <p className="text-xl text-primary/70 leading-relaxed mb-12">
+                  {selectedProject.youtubeId ? (
+                    <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-xl mb-12 border border-gray-100 bg-black">
+                      <iframe
+                        className="w-full h-full"
+                        src={`https://www.youtube.com/embed/${selectedProject.youtubeId}`}
+                        title={selectedProject.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  ) : null}
+
+                  <p className="text-xl text-primary/70 leading-relaxed mb-12 break-keep">
                     {selectedProject.description}
                   </p>
                   
-                  <div className="space-y-8">
-                    {selectedProject.detailedImages.map((img, index) => (
-                      <div key={index} className="rounded-2xl overflow-hidden shadow-lg">
-                        <img 
-                          src={img} 
-                          alt={`${selectedProject.title} detail ${index + 1}`} 
-                          className="w-full h-auto"
-                          referrerPolicy="no-referrer"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  {selectedProject.detailedImages && selectedProject.detailedImages.length > 0 && (
+                    <div className="space-y-8">
+                      {selectedProject.detailedImages.map((img, index) => (
+                        <div key={index} className="rounded-2xl overflow-hidden shadow-lg">
+                          <img 
+                            src={img} 
+                            alt={`${selectedProject.title} detail ${index + 1}`} 
+                            className="w-full h-auto"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 

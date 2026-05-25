@@ -15,7 +15,7 @@ const experience = [
     company: '(주)투엠에이치 (텍캠)',
     desc: (
       <>
-        온·오프라인 브랜딩 총괄 및 F&B 마케팅 수행. <span className="text-secondary font-bold">릴스 조회수 291만 회 달성</span> 등 콘텐츠 기획. 자사몰 및 스마트스토어 UI/UX 구축 및 운영 관리.
+        온·오프라인 브랜딩 총괄 및 F&B 마케팅 수행. <span className="text-secondary font-bold">릴스 조회수 292만 회 달성</span> 등 콘텐츠 기획. 자사몰 및 스마트스토어 UI/UX 구축 및 운영 관리.
       </>
     )
   },
